@@ -5,8 +5,19 @@ import Register from "../pages/Register";
 import Login from "../pages/Login";
 import DashboardWrapper from "./DashboardWrapper";
 import Dashboard from "../pages/Dashboard";
-import { loader as userLoader } from "./DashboardWrapper";
+
 import Profile from "../pages/Profile";
+import { loader as userLoader } from "./DashboardWrapper";
+
+import MedicationList from "../components/MedicationList";
+import { loader as medicationLoader } from "./MedicationList";
+
+import PatientList from "./PatientList";
+import { loader as patientLoader } from "./PatientList";
+
+import NotificationCenter from "../components/NotificationCenter";
+
+
 
 const router = createBrowserRouter([
   {
@@ -37,9 +48,24 @@ const router = createBrowserRouter([
         element: <Dashboard />,
         children: [
           {
+            path: "medications",
+            element: <MedicationList />,
+            loader: medicationLoader,
+          },
+          {
+            path: "notifications",
+            element: <NotificationCenter />,
+            loader: userLoader,
+          },
+          {
             path: "profile",
             element: <Profile />,
             loader: userLoader,
+          },
+          {
+            path: "patients",
+            element: <PatientList/>,
+            loader: patientLoader,
           },
         ],
       },
@@ -49,10 +75,8 @@ const router = createBrowserRouter([
 
 function Body() {
   return (
-    <div className="col-lg-8 col-md-10 col-sm-12 mx-auto mt-3" style={{ minHeight: '73vh' }}>
-      <center>
-        <RouterProvider router={router} />
-      </center>
+    <div>
+      <RouterProvider router={router} />
     </div>
   );
 }

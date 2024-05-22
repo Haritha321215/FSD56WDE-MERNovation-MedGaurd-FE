@@ -77,8 +77,8 @@ const Register = () => {
                       placeholder="Location..."
                   />
               </div>
-              <button  className="mb-2 mt-2 btn btn-outline-primary btn-sm" type="submit">Register</button>
-              <p>Already have an account? <Link to='/login'>Login</Link></p>
+              <button  className="btn btn-outline-dark btn-sm" type="submit">Register</button>
+              <p>Already have an account? <Link className="text-light" to='/login'>Login</Link></p>
         </form>      
     </div>
   )

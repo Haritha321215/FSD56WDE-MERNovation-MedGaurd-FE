@@ -34,7 +34,7 @@ const DashboardWrapper = () => {
   return (
     <div>
       <p className="text-primary d-flex flex-row-reverse">
-        <button className="btn btn-primary btn-sm" onClick={handleLogout}>logout</button>
+        <button className="btn btn-sm btn-outline-primary" onClick={handleLogout}>logout</button>
         Welcome {user ? user.data.user.name : "Guest"}!{" "}
       </p>
 

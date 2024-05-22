@@ -2,10 +2,16 @@
 
 function Header() {
   return (
-    <div className="col-lg-12 col-md-12 col-sm-12 bg-primary text-white py-3">
-      <h1 className="text-center">MedGuard</h1>
+    <div>
+      {/* Header Section */}
+      <header className="bg-primary text-white text-center py-5">
+        <div className="container">
+          <h1 className="display-4">Welcome to MedGuard</h1>
+          <p className="lead">Your reliable medication management system</p>
+        </div>
+      </header>
     </div>
-  )
+  );
 }
 
-export default Header
+export default Header;

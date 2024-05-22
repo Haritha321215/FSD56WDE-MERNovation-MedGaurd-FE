@@ -10,10 +10,7 @@ export async function loader() {
 function Profile() {
   const navigate = useNavigate();
   const { user } = useLoaderData();
-  const [formData, setFormData] = useState({
-    name: user.data.user.name,
-    location: user.data.user.location,
-  });
+  const [formData, setFormData] = useState(user.data.user);
 
   const handleUpdate = (e) => {
     e.preventDefault();
@@ -25,12 +22,11 @@ function Profile() {
     userServices
       .updateUser(name, location)
       .then((response) => {
+        // clear the form
+        e.target.reset();
         alert("Updated successfully");
         setFormData(response.data);
-        // if the updation is successful, redirect to the dashboard page
-        setTimeout(() => {
-          navigate("/dashboard/profile");
-        }, 500);
+      
       })
       .catch((error) => {
         // if there is an error, log the error to the console
@@ -47,7 +43,8 @@ function Profile() {
     });
   };
   return (
-    <div>
+    <div className="d-flex flex-column justify-content-center">
+      <center>
       <form onSubmit={handleUpdate}>
         <div>
           <input className="mt-2" type="text" placeholder={formData.name} />
@@ -55,11 +52,14 @@ function Profile() {
         <div>
           <input  className="mt-2" type="text" placeholder={formData.location} />
         </div>
-        <button className="btn btn-warning btn-sm mt-2 w-25">Edit</button>
+        <button className="btn btn-warning btn-sm mt-2 w-20" onClick={() => setSelectedCategory(category) }>Edit</button>
       </form>
-      <button onClick={handleDelete} className="btn btn-danger btn-sm mt-2 w-25">
+      <button onClick={handleDelete} className="btn btn-danger btn-sm mt-2 w-20">
         Delete
       </button>
+      </center>
+
+      
     </div>
   );
 }

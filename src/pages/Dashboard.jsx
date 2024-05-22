@@ -1,33 +1,51 @@
-import { Link, Outlet } from "react-router-dom";
-
+import { useNavigate, Outlet } from "react-router-dom";
+import { Navbar, Nav } from "react-bootstrap";
+import { useState } from "react";
 const Dashboard = () => {
+  const navigate = useNavigate();
+
+  const [expanded, setExpanded] = useState(false);
   return (
     <div>
-      <center>
-        <div>
-          <div>
-            <nav>
-              <ul className="list-unstyled text-center d-inline">
-                <li>
-                  <Link
-                    to="/dashboard/profile"
-                    style={{ textDecoration: "none" }}
-                  >
-                    User Profile
-                  </Link>
-                </li>
-                <li>
-                  Add Medicine
-                </li>
-              </ul>
-            </nav>
-          </div>
+      <Navbar expanded={expanded} expand="lg" bg="light" variant="light">
+        <Navbar.Brand href="#home">Med Gaurd</Navbar.Brand>
+        <Navbar.Toggle
+          aria-controls="responsive-navbar-nav"
+          onClick={() => setExpanded(!expanded)}
+        />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="mr-auto">
+            <Nav.Link href="#" onClick={() => navigate("/")}>
+              Home
+            </Nav.Link>
 
-          <div style={{ marginLeft: "50px" }}>
-            <Outlet />
-          </div>
-        </div>
-      </center>
+            <Nav.Link
+              href="#"
+              onClick={() => navigate("/dashboard/medications")}
+            >
+              Medications
+            </Nav.Link>
+            <Nav.Link
+              href="#"
+              onClick={() => navigate("/dashboard/notifications")}
+            >
+              Notifications
+            </Nav.Link>
+            <Nav.Link href="#" onClick={() => navigate("/dashboard/profile")}>
+              Profile
+            </Nav.Link>
+            <Nav.Link
+              href="#"
+              onClick={() => navigate("/dashboard/patients")}
+            >
+              Patient
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+      <div>
+        <Outlet />
+      </div>
     </div>
   );
 };

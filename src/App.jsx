@@ -4,21 +4,10 @@ import Header from "./pages/Header";
 
 function App() {
   return (
-    <div className="container-fluid">
-      {/* Header */}
-      <div className="row">
-        <Header />
-      </div>
-
-      {/* Body */}
-      <div className="row">
-        <Body />
-      </div>
-
-      {/* Footer */}
-      <div className="row">
-        <Footer />
-      </div>
+    <div>
+      <Header />
+      <Body />
+      <Footer />
     </div>
   );
 }

@@ -2,10 +2,12 @@
 
 function Footer() {
   return (
-    <div className="col-lg-12 col-md-12 col-sm-12 bg-dark text-white">
-      <center>
-        <p>&copy; 2024 MedGayrd. All rights reserved.</p>
-      </center>
+    <div>
+      <footer className="bg-dark text-white text-center py-4">
+        <div className="container">
+          <p>&copy; 2024 MedGuard. All Rights Reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 }
