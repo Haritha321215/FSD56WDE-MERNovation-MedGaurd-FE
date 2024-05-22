@@ -2,8 +2,8 @@ import axios from "axios";
 
 // define the base url for the API
 
-const baseURL = "http://localhost:3006/api";
-// const baseURL = "https://fsd56wde-mernovation-medgaurd-be.onrender.com/api";
+// const baseURL = "http://localhost:3006/api";
+const baseURL = "https://fsd56wde-mernovation-medgaurd-be.onrender.com/api";
 
 // create an instance of axios
 const instance = axios.create({
